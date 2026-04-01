@@ -1478,3 +1478,33 @@ body {
     border-top: 1px solid var(--border-light);
     margin-top: 8px;
 }
+
+/* ===== FORÇAR LEGIBILIDADE NO CAIXA ===== */
+#caixaAtivo,
+#caixaAtivo *,
+.historico-fechamentos-container,
+.historico-fechamentos-container * {
+    color: var(--text-primary);
+}
+
+#caixaAtivo .caixa-info-label,
+.historico-fechamentos-container label {
+    color: var(--text-secondary);
+}
+
+#caixaAtivo .btn-acao,
+.historico-fechamentos-container .btn-add {
+    color: var(--text-primary);
+}
+
+#caixaAtivo .btn-acao.entrada {
+    color: var(--success);
+}
+
+#caixaAtivo .btn-acao.saida {
+    color: var(--danger);
+}
+
+#btnExpandirHistorico {
+    color: var(--primary-dark);
+}
