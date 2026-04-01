@@ -3661,9 +3661,10 @@ function adicionarResumoVendasPorFeira(dados) {
 
 // Registrar Service Worker para PWA
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js')
+    // Caminho correto para GitHub Pages (case sensitive!)
+    navigator.serviceWorker.register('/FeiraMini/sw.js')
         .then(registration => {
-            console.log('Service Worker registrado com sucesso!');
+            console.log('Service Worker registrado com sucesso!', registration);
         })
         .catch(error => {
             console.log('Falha ao registrar Service Worker:', error);
