@@ -6,9 +6,9 @@
     font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* ===== VARIÁVEIS DE COR (TEMA CLARO - PADRÃO) ===== */
+/* ===== VARIÁVEIS DE COR ===== */
 :root {
-    /* Cores Principais */
+    /* Cores Principais da Marca */
     --primary-dark: #FF6A17;
     --primary-medium: #ff8746;
     --primary-light: #ffa36b;
@@ -22,23 +22,23 @@
     --warning-light: #fff3e0;
     --whatsapp: #25D366;
     
-    /* Cores de Fundo */
+    /* Cores de Fundo - Sempre claras */
     --bg-body: #e8eef2;
     --bg-content: #f6f9fc;
     --bg-card: #ffffff;
     --bg-hover: #f8fafc;
     --bg-highlight: #f0f7fa;
     --bg-overlay: rgba(0,0,0,0.5);
+    --bg-input: #ffffff;
     
-    /* Cores de Texto */
+    /* Cores de Texto - Sempre escuras para legibilidade */
     --text-primary: #1e313f;
     --text-secondary: #4d6373;
     --text-muted: #6b8ba0;
     --text-light: #94a3b8;
-    --text-dark: #1e293b;
     --text-white: #ffffff;
-    --text-input: #1e313f;        
-    --text-placeholder: #94a3b8; 
+    --text-input: #1e313f;
+    --text-placeholder: #94a3b8;
     
     /* Cores de Bordas */
     --border: #d0dde8;
@@ -85,7 +85,6 @@ body {
 .topo {
     background: var(--gradient-primary);
     padding: 28px 22px 16px 22px;
-    color: var(--text-white);
     border-bottom: 1px solid #dae2e8;
     display: flex;
     justify-content: space-between;
@@ -271,7 +270,7 @@ body {
     display: flex;
     align-items: center;
     gap: 16px;
-    color: var(--text-dark);
+    color: var(--text-primary);
     border-bottom: 1px solid var(--border-lighter);
     cursor: pointer;
     transition: background 0.2s;
@@ -303,10 +302,9 @@ body {
 }
 
 /* ===== COMPONENTES REUTILIZÁVEIS ===== */
-/* Botões de ação */
 .btn-add {
     background: var(--bg-card);
-    color: #1f3c4d;
+    color: var(--text-primary);
     border: 1.5px solid #b8cbd9;
     padding: 10px 18px;
     border-radius: 40px;
@@ -316,11 +314,16 @@ body {
     align-items: center;
     gap: 8px;
     cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-add:hover {
+    background: var(--bg-hover);
 }
 
 .btn-finalizar {
     width: 100%;
-    background: var(--success);
+    background: var(--gradient-primary);
     color: var(--text-white);
     border: none;
     padding: 16px;
@@ -333,9 +336,14 @@ body {
     gap: 8px;
     margin-top: 12px;
     cursor: pointer;
+    transition: opacity 0.2s;
 }
 
-/* Cards de listagem (feiras, produtos) */
+.btn-finalizar:hover {
+    opacity: 0.9;
+}
+
+/* Cards de listagem */
 .feira-item,
 .produto-item {
     background: var(--bg-card);
@@ -384,7 +392,6 @@ body {
     font-weight: 500;
 }
 
-/* Ícones de ação */
 .editar-feira,
 .excluir-feira,
 .editar-produto,
@@ -393,11 +400,17 @@ body {
     font-size: 18px;
     padding: 5px;
     cursor: pointer;
+    transition: color 0.2s;
 }
 
-.excluir-feira,
-.excluir-produto {
-    color: #b17f79;
+.editar-feira:hover,
+.editar-produto:hover {
+    color: var(--primary-dark);
+}
+
+.excluir-feira:hover,
+.excluir-produto:hover {
+    color: var(--danger);
 }
 
 /* ===== DASHBOARD ===== */
@@ -407,7 +420,6 @@ body {
     margin-bottom: 20px;
     overflow-x: auto;
     padding-bottom: 4px;
-    -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
 }
 
@@ -495,6 +507,7 @@ body {
 
 .venda-produto {
     font-weight: 500;
+    color: var(--text-primary);
 }
 
 .venda-valor {
@@ -559,8 +572,12 @@ body {
     border: none;
     outline: none;
     font-size: 14px;
-    background: var(--bg-card);
+    background: transparent;
     color: var(--text-primary);
+}
+
+.produtos-filtros input::placeholder {
+    color: var(--text-placeholder);
 }
 
 .produtos-grid {
@@ -631,10 +648,13 @@ body {
     color: var(--text-primary);
 }
 
+.pdv-busca input::placeholder {
+    color: var(--text-placeholder);
+}
+
 .pdv-produtos-lista {
     max-height: 300px;
     overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
     padding-right: 4px;
 }
 
@@ -650,7 +670,7 @@ body {
     transition: background 0.2s;
 }
 
-.produto-pdv-item:active {
+.produto-pdv-item:hover {
     background: #e1eef9;
 }
 
@@ -661,6 +681,7 @@ body {
 
 .produto-pdv-nome {
     font-weight: 600;
+    color: var(--text-primary);
 }
 
 .produto-pdv-preco {
@@ -699,6 +720,7 @@ body {
     padding: 2px 8px;
     border-radius: 20px;
     font-size: 12px;
+    color: var(--text-primary);
 }
 
 .resumo-total {
@@ -709,6 +731,7 @@ body {
     font-size: 18px;
     display: flex;
     justify-content: space-between;
+    color: var(--text-primary);
 }
 
 /* ===== CAIXA ===== */
@@ -726,7 +749,7 @@ body {
 
 .btn-caixa {
     background: var(--bg-card);
-    color: #1f3c4d;
+    color: var(--text-primary);
     border: 1.5px solid #b8cbd9;
     padding: 10px 18px;
     border-radius: 40px;
@@ -736,12 +759,17 @@ body {
     align-items: center;
     gap: 8px;
     cursor: pointer;
+    transition: all 0.2s;
 }
 
 .btn-caixa.aberto {
     background: var(--success-light);
     border-color: var(--success);
     color: var(--success);
+}
+
+.btn-caixa:hover {
+    background: var(--bg-hover);
 }
 
 .caixa-acoes {
@@ -774,6 +802,15 @@ body {
     border-bottom: none;
 }
 
+.caixa-info-label {
+    color: var(--text-secondary);
+}
+
+.caixa-info-value {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
 .btn-acao {
     background: var(--bg-card);
     border: 1px solid #b8cbd9;
@@ -786,176 +823,19 @@ body {
     font-weight: 500;
     cursor: pointer;
     width: 100%;
-}
-
-.btn-acao.saida {
-    color: var(--danger);
+    transition: all 0.2s;
 }
 
 .btn-acao.entrada {
     color: var(--success);
 }
 
-/* Garantir largura total no caixa */
-#viewCaixa,
-#viewCaixa > div,
-.caixa-info,
-.caixa-acoes,
-.controle-financeiro-container,
-#painelFinanceiro,
-#resumoFinanceiro {
-    width: 100%;
-    box-sizing: border-box;
-}
-
-/* Histórico de fechamentos */
-.historico-fechamentos-container {
-    width: 100%;
-    margin-top: 20px;
-}
-
-#historicoFechamentos {
-    transition: all 0.3s ease;
-}
-
-.fechamento-item {
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-#buscaHistoricoContainer {
-    animation: slideDown 0.3s ease;
-}
-
-/* ===== CONTROLE FINANCEIRO ===== */
-.controle-financeiro-container {
-    width: 100%;
-    margin-top: 15px;
-}
-
-.painel-financeiro {
-    width: 100%;
-    margin-top: 15px;
-    padding: 20px;
-    background: var(--bg-hover);
-    border-radius: 30px;
-    border: 1px dashed #cbd5e1;
-    animation: fadeIn 0.3s ease;
-}
-
-.painel-financeiro-botoes {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    width: 100%;
-}
-
-.btn-financeiro {
-    width: 100%;
-    padding: 16px 12px;
-    border: none;
-    border-radius: 30px;
-    font-weight: 600;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    cursor: pointer;
-    transition: all 0.2s;
-    box-shadow: var(--shadow-sm);
-}
-
-.btn-financeiro i {
-    font-size: 18px;
-}
-
-.btn-financeiro.despesa {
-    background: var(--warning-light);
-    color: var(--warning);
-    border: 1px solid #ffb74d;
-}
-
-.btn-financeiro.despesa:hover {
-    background: #ffe0b2;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(230, 81, 0, 0.2);
-}
-
-.btn-financeiro.receita {
-    background: #e8f5e9;
-    color: #2e7d32;
-    border: 1px solid #81c784;
-}
-
-.btn-financeiro.receita:hover {
-    background: #c8e6c9;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(46, 125, 50, 0.2);
-}
-
-.resumo-financeiro {
-    width: 100%;
-    background: var(--bg-card);
-    border-radius: 30px;
-    padding: 20px;
-    border: 1px solid var(--border-light);
-    margin-top: 15px;
-    animation: slideDown 0.3s ease;
-}
-
-.resumo-financeiro-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #eef2f6;
-}
-
-.resumo-financeiro-header h4 {
-    color: var(--text-primary);
-    font-size: 16px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.resumo-financeiro-header span {
-    font-size: 12px;
-    color: var(--text-muted);
-    background: #f1f5f9;
-    padding: 4px 10px;
-    border-radius: 30px;
-}
-
-.resumo-financeiro-valores {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    width: 100%;
-}
-
-.resumo-item .label {
-    font-size: 13px;
-    color: #64748b;
-    margin-bottom: 5px;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
-.resumo-item .valor {
-    font-size: 22px;
-    font-weight: 700;
-}
-
-.resumo-item .valor.despesa {
+.btn-acao.saida {
     color: var(--danger);
 }
 
-.resumo-item .valor.receita {
-    color: var(--success);
+.btn-acao:hover {
+    background: var(--bg-hover);
 }
 
 /* ===== MODAIS ===== */
@@ -983,7 +863,7 @@ body {
     border-radius: 30px 30px 0 0;
     padding: 24px;
     animation: slideUp 0.3s ease;
-    max-height: 80vh;
+    max-height: 85vh;
     overflow-y: auto;
 }
 
@@ -992,6 +872,12 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+    background: var(--bg-card);
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-light);
+    z-index: 10;
 }
 
 .modal-header h3 {
@@ -1007,6 +893,11 @@ body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    transition: background 0.2s;
+}
+
+.close-modal:hover {
+    background: var(--border-light);
 }
 
 /* ===== FORMULÁRIOS ===== */
@@ -1017,7 +908,7 @@ body {
 .form-group label {
     display: block;
     margin-bottom: 6px;
-    color: var(--text-primary);
+    color: var(--text-secondary);
     font-weight: 500;
 }
 
@@ -1029,6 +920,7 @@ body {
     font-size: 16px;
     background: var(--input-bg);
     color: var(--input-text);
+    transition: border-color 0.2s;
 }
 
 .form-control::placeholder {
@@ -1042,7 +934,7 @@ body {
 
 .btn-salvar {
     width: 100%;
-    background: var(--primary-dark);
+    background: var(--gradient-primary);
     color: var(--text-white);
     border: none;
     padding: 16px;
@@ -1050,19 +942,24 @@ body {
     font-weight: 600;
     margin-top: 10px;
     cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-salvar:hover {
+    opacity: 0.9;
 }
 
 /* ===== ESTADOS VAZIOS ===== */
 .vazio {
     text-align: center;
-    color: #8fa6b8;
+    color: var(--text-muted);
     padding: 40px 20px;
 }
 
 .vazio i {
     font-size: 48px;
     margin-bottom: 10px;
-    color: #b0c8da;
+    color: var(--border);
 }
 
 /* ===== RODAPÉ ===== */
@@ -1087,6 +984,11 @@ body {
     padding: 4px 10px;
     border-radius: 20px;
     border: 1px solid var(--whatsapp);
+    transition: background 0.2s;
+}
+
+.rodape a:hover {
+    background: var(--border-light);
 }
 
 /* ===== ANIMAÇÕES ===== */
@@ -1142,27 +1044,81 @@ body {
     }
 }
 
-/* ===== UTILITÁRIOS ===== */
+@media (max-width: 480px) {
+    .relatorios-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .periodo-selector {
+        justify-content: center;
+    }
+}
+
+/* ===== UTILITÁRIOS ESPECÍFICOS ===== */
+#viewCaixa,
+#viewCaixa > div,
+.caixa-info,
+.caixa-acoes,
+.controle-financeiro-container,
+#painelFinanceiro,
+#resumoFinanceiro {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.historico-fechamentos-container {
+    width: 100%;
+    margin-top: 20px;
+}
+
+#historicoFechamentos {
+    transition: all 0.3s ease;
+}
+
+.fechamento-item {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.fechamento-item:hover {
+    transform: translateX(5px);
+    box-shadow: var(--shadow-sm);
+}
+
+#buscaHistoricoContainer {
+    animation: slideDown 0.3s ease;
+}
+
 #buscaHistoricoContainer .btn-add {
     white-space: nowrap;
     padding: 10px 16px;
 }
 
-#painelFinanceiro {
-    width: 100% !important;
-    box-sizing: border-box;
+/* ===== CONTROLE FINANCEIRO ===== */
+.controle-financeiro-container {
+    width: 100%;
+    margin-top: 15px;
 }
 
-#painelFinanceiro .painel-financeiro-botoes {
+.painel-financeiro {
+    width: 100%;
+    margin-top: 15px;
+    padding: 20px;
+    background: var(--bg-hover);
+    border-radius: 30px;
+    border: 1px dashed #cbd5e1;
+    animation: fadeIn 0.3s ease;
+}
+
+.painel-financeiro-botoes {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 12px;
     width: 100%;
 }
 
-#painelFinanceiro .btn-financeiro {
+.btn-financeiro {
     width: 100%;
-    padding: 14px 10px;
+    padding: 16px 12px;
     border: none;
     border-radius: 30px;
     font-weight: 600;
@@ -1172,21 +1128,105 @@ body {
     justify-content: center;
     gap: 8px;
     cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: var(--shadow-sm);
 }
 
-#painelFinanceiro p {
+.btn-financeiro i {
+    font-size: 18px;
+}
+
+.btn-financeiro.despesa {
+    background: var(--warning-light);
+    color: var(--warning);
+    border: 1px solid #ffb74d;
+}
+
+.btn-financeiro.despesa:hover {
+    background: #ffe0b2;
+    transform: translateY(-2px);
+}
+
+.btn-financeiro.receita {
+    background: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #81c784;
+}
+
+.btn-financeiro.receita:hover {
+    background: #c8e6c9;
+    transform: translateY(-2px);
+}
+
+.resumo-financeiro {
     width: 100%;
-    text-align: center;
-    font-size: 12px;
-    color: var(--text-light);
+    background: var(--bg-card);
+    border-radius: 30px;
+    padding: 20px;
+    border: 1px solid var(--border-light);
     margin-top: 15px;
-    padding-top: 10px;
-    border-top: 1px dashed #cbd5e1;
+    animation: slideDown 0.3s ease;
+}
+
+.resumo-financeiro-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eef2f6;
+}
+
+.resumo-financeiro-header h4 {
+    color: var(--text-primary);
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.resumo-financeiro-header span {
+    font-size: 12px;
+    color: var(--text-muted);
+    background: #f1f5f9;
+    padding: 4px 10px;
+    border-radius: 30px;
+}
+
+.resumo-financeiro-valores {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    width: 100%;
+}
+
+.resumo-item .label {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.resumo-item .valor {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.resumo-item .valor.despesa {
+    color: var(--danger);
+}
+
+.resumo-item .valor.receita {
+    color: var(--success);
 }
 
 /* ===== BOTÕES DE PAGAMENTO ===== */
 .btn-pagamento {
     transition: all 0.2s ease;
+    cursor: pointer;
 }
 
 .btn-pagamento:hover {
@@ -1201,20 +1241,16 @@ body {
 #btnConfirmarVenda:disabled {
     opacity: 0.5;
     cursor: not-allowed;
-    background: var(--text-light) !important;
+    background: var(--text-muted) !important;
 }
 
 /* ===== SALDO NEGATIVO ===== */
-.caixa-info-value.negativo {
+.caixa-info-value.negativo,
+.card-resumo.total .card-valor.negativo {
     color: var(--danger) !important;
     font-weight: bold;
 }
 
-.card-resumo.total .card-valor.negativo {
-    color: var(--danger) !important;
-}
-
-/* Destaque para aviso de saldo */
 #avisoSaldo {
     animation: pulseWarning 1s ease-in-out;
 }
@@ -1247,7 +1283,7 @@ body {
 
 .btn-periodo {
     background: var(--bg-card);
-    color: #1f3c4d;
+    color: var(--text-primary);
     border: 1.5px solid #b8cbd9;
     padding: 8px 16px;
     border-radius: 40px;
@@ -1261,18 +1297,6 @@ body {
     background: var(--primary-dark);
     color: var(--text-white);
     border-color: var(--primary-dark);
-}
-
-.relatorios-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin-bottom: 20px;
-}
-
-.relatorios-cards .card-resumo {
-    min-width: auto;
-    text-align: center;
 }
 
 .pagamento-card {
@@ -1298,17 +1322,6 @@ body {
 .vendas-detalhadas h3 {
     color: var(--text-primary);
     margin-bottom: 12px;
-}
-
-/* Responsividade */
-@media (max-width: 480px) {
-    .relatorios-cards {
-        grid-template-columns: 1fr;
-    }
-    
-    .periodo-selector {
-        justify-content: center;
-    }
 }
 
 /* ===== COMPARATIVO POR FEIRA ===== */
@@ -1379,7 +1392,7 @@ body {
 }
 
 .ajuda-header p {
-    color: #64748b;
+    color: var(--text-secondary);
     font-size: 14px;
 }
 
@@ -1404,7 +1417,7 @@ body {
 }
 
 .ajuda-card p {
-    color: #334155;
+    color: var(--text-primary);
     font-size: 14px;
     line-height: 1.5;
     margin-bottom: 8px;
@@ -1464,50 +1477,4 @@ body {
     font-size: 12px;
     border-top: 1px solid var(--border-light);
     margin-top: 8px;
-}
-
-/* Cards e itens de lista */
-.feira-item,
-.produto-item {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    color: var(--text-primary);
-}
-
-/* Campos de busca */
-.produtos-filtros,
-.pdv-busca {
-    background: var(--input-bg);
-    border: 1px solid var(--border);
-}
-
-.produtos-filtros input,
-.pdv-busca input {
-    background: transparent;
-    color: var(--input-text);
-}
-
-.produtos-filtros input::placeholder,
-.pdv-busca input::placeholder {
-    color: var(--text-placeholder);
-}
-
-/* Modal */
-.modal-content {
-    background: var(--bg-card);
-}
-
-.modal-header h3 {
-    color: var(--text-primary);
-}
-
-/* Close modal */
-.close-modal {
-    background: var(--bg-highlight);
-    color: var(--text-secondary);
-}
-
-/* Labels dos formulários */
-.form-group label {
-    color: var(--text-secondary);
 }
