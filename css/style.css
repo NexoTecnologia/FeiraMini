@@ -1541,3 +1541,7 @@ h3 {
     background: var(--gradient-primary);
     color: var(--text-white);
 }
+
+span{
+    color: var(--primary-dark);
+}
