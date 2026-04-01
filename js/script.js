@@ -1136,6 +1136,7 @@ function buscarFeiras() {
             border-radius: 20px;
             margin-bottom: 10px;
             cursor: pointer;
+            color: black;
             transition: background 0.2s;
         `;
         
