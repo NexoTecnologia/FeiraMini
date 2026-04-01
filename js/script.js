@@ -1143,7 +1143,7 @@ function buscarFeiras() {
         
         item.innerHTML = `
             <div style="flex: 1;" onclick="selecionarFeira(${feira.id})">
-                <div style="font-weight: 600; display: flex; align-items: center; gap: 8px;">
+                <div style="font-weight: 600; display: flex; align-items: center; gap: 8px; color: black;">
                     ${feira.nome}
                     ${isAtiva ? '<span style="font-size: 11px; background: #1b6b4c; color: white; padding: 2px 8px; border-radius: 20px;">Ativa</span>' : ''}
                 </div>
