@@ -1512,3 +1512,6 @@ body {
 h3 {
     color: var(--prmary-dark);
 }
+.feira-listada{
+    color: var(--primary-dark);!important
+}
