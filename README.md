@@ -1,6 +1,6 @@
 Projeto desenvolvido inteiramente com IA, no objetivo de demonstrar na prática o controle de vendas em feiras locais, exemplificando para o feirante as vantagens que um sistema pode trazer para seu empreendimento.
 
-**Acesse:** [https://nexotecnologia.github.io/FeiraMini/](LiveApp)
+**Acesse:** [LiveApp]([LiveApp](https://nexotecnologia.github.io/FeiraMini/))
 
 # FeiraMini
 
