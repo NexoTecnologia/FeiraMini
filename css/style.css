@@ -1515,3 +1515,29 @@ h3 {
 .feira-listada{
     color: var(--primary-dark);!important
 }
+
+/* ===== CORREÇÃO DO MODAL DE FECHAMENTO ===== */
+.modal .caixa-info {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+}
+
+.modal .caixa-info-item span:first-child {
+    color: var(--text-secondary);
+}
+
+.modal .caixa-info-item span:last-child {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.modal .caixa-info-item:last-child span:last-child {
+    color: var(--primary-dark);
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.modal .btn-salvar {
+    background: var(--gradient-primary);
+    color: var(--text-white);
+}
