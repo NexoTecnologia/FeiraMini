@@ -6,12 +6,12 @@
     font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* ===== VARIÁVEIS DE COR ===== */
+/* ===== VARIÁVEIS DE COR (TEMA CLARO - PADRÃO) ===== */
 :root {
     /* Cores Principais */
     --primary-dark: #FF6A17;
     --primary-medium: #ff8746;
-    --primary-light: #4a6b8f;
+    --primary-light: #ffa36b;
     
     /* Cores de Ação */
     --success: #1b6b4c;
@@ -37,12 +37,19 @@
     --text-light: #94a3b8;
     --text-dark: #1e293b;
     --text-white: #ffffff;
+    --text-input: #1e313f;        /* NOVO - cor do texto nos inputs */
+    --text-placeholder: #94a3b8;   /* NOVO - cor do placeholder */
     
     /* Cores de Bordas */
     --border: #d0dde8;
     --border-light: #e2e8f0;
     --border-lighter: #f1f5f9;
     --border-highlight: #a0b8c9;
+    
+    /* Cores de Input */
+    --input-bg: #ffffff;
+    --input-border: #d0dde8;
+    --input-text: #1e313f;
     
     /* Gradientes */
     --gradient-primary: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-medium) 100%);
@@ -52,6 +59,50 @@
     --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
     --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
     --shadow-card: 0 0 0 1px rgba(0,0,0,0.03), 0 15px 35px rgba(0,0,0,0.05);
+}
+
+/* ===== TEMA ESCURO (detectado pelo sistema) ===== */
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Cores de Fundo */
+        --bg-body: #121212;
+        --bg-content: #1e1e1e;
+        --bg-card: #2d2d2d;
+        --bg-hover: #3d3d3d;
+        --bg-highlight: #2a2a2a;
+        --bg-overlay: rgba(0,0,0,0.8);
+        
+        /* Cores de Texto */
+        --text-primary: #e0e0e0;
+        --text-secondary: #b0b0b0;
+        --text-muted: #9e9e9e;
+        --text-light: #757575;
+        --text-dark: #e0e0e0;
+        --text-input: #e0e0e0;        /* Texto dos inputs no escuro */
+        --text-placeholder: #9e9e9e;   /* Placeholder no escuro */
+        
+        /* Cores de Bordas */
+        --border: #404040;
+        --border-light: #3a3a3a;
+        --border-lighter: #353535;
+        --border-highlight: #ff8746;
+        
+        /* Cores de Input */
+        --input-bg: #3d3d3d;
+        --input-border: #555555;
+        --input-text: #e0e0e0;
+        
+        /* Sombras (mais sutis no escuro) */
+        --shadow-sm: 0 2px 8px rgba(0,0,0,0.3);
+        --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+        --shadow-lg: 0 8px 24px rgba(0,0,0,0.5);
+        --shadow-card: 0 0 0 1px rgba(255,255,255,0.05), 0 15px 35px rgba(0,0,0,0.3);
+        
+        /* Ajustes específicos */
+        --success-light: #1a3a2a;
+        --danger-light: #3a2a2a;
+        --warning-light: #3a2a1a;
+    }
 }
 
 body {
@@ -1017,10 +1068,20 @@ body {
 .form-control {
     width: 100%;
     padding: 14px;
-    border: 1px solid var(--border);
+    border: 1px solid var(--input-border);
     border-radius: 30px;
     font-size: 16px;
-    background: #f8fafc;
+    background: var(--input-bg);
+    color: var(--input-text);
+}
+
+.form-control::placeholder {
+    color: var(--text-placeholder);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-medium);
 }
 
 .btn-salvar {
@@ -1447,4 +1508,50 @@ body {
     font-size: 12px;
     border-top: 1px solid var(--border-light);
     margin-top: 8px;
+}
+
+/* Cards e itens de lista */
+.feira-item,
+.produto-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+}
+
+/* Campos de busca */
+.produtos-filtros,
+.pdv-busca {
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+}
+
+.produtos-filtros input,
+.pdv-busca input {
+    background: transparent;
+    color: var(--input-text);
+}
+
+.produtos-filtros input::placeholder,
+.pdv-busca input::placeholder {
+    color: var(--text-placeholder);
+}
+
+/* Modal */
+.modal-content {
+    background: var(--bg-card);
+}
+
+.modal-header h3 {
+    color: var(--text-primary);
+}
+
+/* Close modal */
+.close-modal {
+    background: var(--bg-highlight);
+    color: var(--text-secondary);
+}
+
+/* Labels dos formulários */
+.form-group label {
+    color: var(--text-secondary);
 }
