@@ -1078,7 +1078,7 @@ function carregarModalSelecionarFeira() {
         item.innerHTML = `
             <div style="flex: 1;">
                 <div style="font-weight: 600; display: flex; align-items: center; gap: 8px;">
-                    ${feira.nome}
+                    <span class="feira-listada">${feira.nome}</span>
                     ${isAtiva ? '<span style="font-size: 11px; background: #1b6b4c; color: white; padding: 2px 8px; border-radius: 20px;">Ativa</span>' : ''}
                 </div>
                 <div style="font-size: 12px; color: #4d6373; margin-top: 4px;">
