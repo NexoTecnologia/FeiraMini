@@ -1717,7 +1717,7 @@ function mostrarDetalhesFechamento(fechamento) {
         return `
             <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px dashed #e2e8f0;">
                 <div>
-                    <div style="font-weight: 500;">${m.descricao}</div>
+                    <div class="modal-subtitle">${m.descricao}</div>
                     <div style="font-size: 11px; color: #64748b;">${m.data}</div>
                 </div>
                 <span style="color: ${cor}; font-weight: 600;">${sinal} R$ ${m.valor.toFixed(2)}</span>
@@ -1738,33 +1738,33 @@ function mostrarDetalhesFechamento(fechamento) {
                 <div style="background: #f8fafc; border-radius: 20px; padding: 15px; margin-bottom: 15px;">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
                         <span style="color: #64748b;">Data:</span>
-                        <span style="font-weight: 600;">${fechamento.dataFechamento}</span>
+                        <span class="modal-txt">${fechamento.dataFechamento}</span>
                     </div>
                     <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
                         <span style="color: #64748b;">Feira:</span>
-                        <span style="font-weight: 600;">${fechamento.feiraNome}</span>
+                        <span class="modal-txt"">${fechamento.feiraNome}</span>
                     </div>
                     <div style="border-top: 1px solid #e2e8f0; margin: 10px 0; padding-top: 10px;">
                         <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                            <span>Valor Inicial:</span>
-                            <span>R$ ${fechamento.valorInicial.toFixed(2)}</span>
+                            <span class="modal-txt">Valor Inicial:</span>
+                            <span class="modal-txt">R$ ${fechamento.valorInicial.toFixed(2)}</span>
                         </div>
                         <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                            <span>Total Vendas:</span>
+                            <span class="modal-txt">Total Vendas:</span>
                             <span style="color: #1b6b4c;">+ R$ ${fechamento.totalVendas.toFixed(2)}</span>
                         </div>
                         <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                            <span>Total Saídas:</span>
+                            <span class="modal-txt">Total Saídas:</span>
                             <span style="color: #b33f3f;">- R$ ${fechamento.totalSaidas.toFixed(2)}</span>
                         </div>
                         <div style="border-top: 2px solid #e2e8f0; margin-top: 10px; padding-top: 10px; display: flex; justify-content: space-between;">
-                            <span style="font-weight: 700;">Saldo Final:</span>
+                            <span class="modal-title">Saldo Final:</span>
                             <span style="font-weight: 700; font-size: 18px; color: #1e3b4f;">R$ ${fechamento.saldoFinal.toFixed(2)}</span>
                         </div>
                     </div>
                 </div>
                 
-                <h4 style="margin-bottom: 10px;">Movimentações do Dia</h4>
+                <h4 style="margin-bottom: 10px; color: #1e313f;">Movimentações do Dia</h4>
                 <div style="max-height: 300px; overflow-y: auto; padding-right: 5px;">
                     ${movimentacoesHtml}
                 </div>
@@ -2326,19 +2326,19 @@ function abrirModalPagamento(total) {
             <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 20px;">
                 <button class="btn-pagamento" data-pagamento="dinheiro" style="padding: 16px; border: 2px solid #e2e8f0; border-radius: 20px; background: white; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: all 0.2s;">
                     <i class="fa-solid fa-money-bill-wave" style="font-size: 24px; color: #2c5a7a;"></i>
-                    <span style="font-weight: 600;">Dinheiro</span>
+                    <span style="font-weight: 600; color: #1e313f;">Dinheiro</span>
                 </button>
                 <button class="btn-pagamento" data-pagamento="pix" style="padding: 16px; border: 2px solid #e2e8f0; border-radius: 20px; background: white; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: all 0.2s;">
                     <i class="fa-brands fa-pix" style="font-size: 24px; color: #2c5a7a;"></i>
-                    <span style="font-weight: 600;">PIX</span>
+                    <span style="font-weight: 600;color: #1e313f">PIX</span>
                 </button>
                 <button class="btn-pagamento" data-pagamento="credito" style="padding: 16px; border: 2px solid #e2e8f0; border-radius: 20px; background: white; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: all 0.2s;">
                     <i class="fa-regular fa-credit-card" style="font-size: 24px; color: #2c5a7a;"></i>
-                    <span style="font-weight: 600;">Cartão Crédito</span>
+                    <span style="font-weight: 600;color: #1e313f">Cartão Crédito</span>
                 </button>
                 <button class="btn-pagamento" data-pagamento="debito" style="padding: 16px; border: 2px solid #e2e8f0; border-radius: 20px; background: white; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: all 0.2s;">
                     <i class="fa-solid fa-credit-card" style="font-size: 24px; color: #2c5a7a;"></i>
-                    <span style="font-weight: 600;">Cartão Débito</span>
+                    <span style="font-weight: 600;color: #1e313f">Cartão Débito</span>
                 </button>
             </div>
             
