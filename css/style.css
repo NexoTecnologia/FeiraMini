@@ -884,6 +884,28 @@ body {
 .modal-header h3 {
     color: var(--text-primary);
 }
+.modal-header h4 {
+    color: var(--text-primary);
+}
+
+.modal-header span{
+    color: var(--text-primary)
+}
+
+.modal-txt {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.modal-title{
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+.modal-subtitle{
+    color: var(--text-primary);
+    font-weight: 500;
+}
 
 .close-modal {
     width: 40px;
