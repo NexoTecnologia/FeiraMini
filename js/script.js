@@ -5,7 +5,17 @@ const Storage = {
         if (!localStorage.getItem('feiraMini')) {
             const dadosIniciais = {
                 produtos: [ ],
-                feiras: [],
+                feiras: [
+                    { 
+                    id: 1, 
+                    nome: 'Feira Principal', 
+                    periodicidade: 'Todos os dias',
+                    contribuicao: null,
+                    tipoContribuicao: 'diária',
+                    outrosCustos: null,
+                    endereco: ''
+                    }
+                ],
                 caixas: {},
                 fechamentos: {},
                 financeiro: {},
