@@ -22,6 +22,9 @@ const Storage = {
                 historicoVendas: {}
             };
             localStorage.setItem('feiraMini', JSON.stringify(dadosIniciais));
+
+                    // Define a feira ativa como a primeira (id: 1)
+            localStorage.setItem('feiraAtivaId', 1);
         }
     },
 
